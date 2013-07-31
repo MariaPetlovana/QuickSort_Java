@@ -12,12 +12,10 @@ import java.util.ArrayList;
  * @author Masha
  */
 public class JavaApplication4 {
-
     
     public static class QuickSort
     {
-        private ArrayList<Integer> alist;
-        private int size;
+        private ArrayList<Integer> m_list;
         
         private class MyPair
         {
@@ -27,18 +25,16 @@ public class JavaApplication4 {
         
         public QuickSort(ArrayList<Integer> l, int _size)
         {
-            this.alist = l;
-            this.size = _size;
-            
+            this.m_list = l;
             Sort(0, _size - 1);
         }
         
-        public ArrayList<Integer> ReturnList()
+        private ArrayList<Integer> ReturnList()
         {
-            return alist;
+            return m_list;
         }
         
-        public void Sort(int start, int end)
+        private void Sort(int start, int end)
         {
             MyPair m = Partition(start, end);
                         
@@ -64,11 +60,11 @@ public class JavaApplication4 {
             int x = (start + end) >> 1;
             do
             {
-                while((alist.get(i)).compareTo((alist.get(x))) < 0)
+                while((m_list.get(i)).compareTo((m_list.get(x))) < 0)
                 {
                     ++i;
                 }
-                while((alist.get(j)).compareTo(alist.get(x)) > 0)
+                while((m_list.get(j)).compareTo(m_list.get(x)) > 0)
                 {
                     --j;
                 }
@@ -77,9 +73,9 @@ public class JavaApplication4 {
                 {
                     if(i < j)
                     {
-                        int tmp = (int)alist.get(i);
-                        alist.set(i, alist.get(j));
-                        alist.set(j, tmp);
+                        int tmp = (int)m_list.get(i);
+                        m_list.set(i, m_list.get(j));
+                        m_list.set(j, tmp);
                     }
                     
                     ++i;
